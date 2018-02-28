@@ -1,0 +1,9 @@
+1. place finger on the left most card.
+
+2. if card´s value is larger than the value of the card to its right, swap the two cards.
+  a. swap the two cards
+  b. go back to step 1
+  
+3. else if that card´s value is smaller than the value of the card to its right, move your finger to the card to the card on the right (with the bigger number).
+
+4. repeat steps 2-3 until your finger is on the rightmost card
