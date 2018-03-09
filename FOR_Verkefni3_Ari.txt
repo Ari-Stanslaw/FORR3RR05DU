@@ -1,0 +1,53 @@
+1) Komdu með fall/kóðsýnidæmi fyrir hvern flokk í Big(O). (2%)
+A) 
+O(n):
+int[] a = new int[n];
+for(int i=0; i<n; i++){
+a[i] = n
+}
+B) 
+O(n log(n) ):
+while(x>0){
+x/=2;
+}
+C)
+O(n^2):
+for(int i=0; i<n; i++){
+	for(int j=0; j<n; j++){
+	a[i][j] = n;
+	}
+}
+D)
+O(2n ):
+int[] a = new int[n];
+for(int i=0; i<n; i = i + 2){
+a[i] = n
+}
+
+
+2) Tímamæling og tímaflækja. (3%)
+Notaðu fibonacci föll (ítraða og endurkvæma útgáfu) og taktu tímamælingu á þeim með eftirfarandi inntök: 1, 10, 20, 30, 40, og 50. Hversu langan tíma tók að keyra föllin með þessi mismunandi inntök? Hvaða tímaflækjur (Big O) eru á þessum tveimur föllum (fibonacci ítrað, fibonacci endurkvæm)?
+
+3)  Útskýrðu þýðingu P = NP og P ? NP. Hvað stendur P og NP fyrir? komdu með dæmi um NP vandamál. (2%)
+P = NP: að öll dæmi sem eru NP eru P
+P ? NP: að það eru 2 óteingd meingi
+P: Polynomial time
+NP: Non-deteministic Polynomial time
+Demi um NP er til dæmis Sudoku
+
+4) Hér er dæmi um frumutöluþáttunar reiknirit (e. prime factorization) https://en.wikipedia.org/wiki/Trial_division (3%) 
+from time import perf_counter 
+num = 1998			 # Replace with your own number
+divisor = 2 					 # The first number num is divided by 
+start = perf_counter()				 # Start timer
+while (num > 1): 				 # Divide by divisor as long as you can.
+while num % divisor == 0:		 # If there is no remainder after division
+print(divisor)			 # Then divisor is a prime factor
+ num /= divisor 
+divisor += 1
+print('are its prime factors') 
+print('and it took...', perf_counter()- start, 'seconds to calculate.') 
+
+a) Hvað gerir þetta reiknirit hægvirkt?
+b) Hver er kostur reikniritsins? 
+c) Hvernig liti ferillinn út á grafi, ef við reiknuðum tíma vs. fjöldi bita. Hvaða tímaflækja er þetta?
