@@ -1,0 +1,74 @@
+1) Quick Sort
+  public static List<T> Quicksort<T>(List<T> elements) where T: IComparable {
+        if (elements.Count() < 2) return elements;
+        var pivot = rand.Next(elements.Count());
+        var val = elements[pivot];
+        var lesser = new List<T>();
+        var greater = new List<T>();
+        for (int i = 0; i < elements.Count(); i++) {
+            if (i != pivot) {
+                if (elements[i].CompareTo(val) < 0) {
+                    lesser.Add(elements[i]);
+                }
+                else {
+                    greater.Add(elements[i]);
+                }
+            }
+        }
+
+        var merged = Quicksort(lesser);
+        merged.Add(val);
+        merged.AddRange(Quicksort(greater));
+        return merged;
+    }
+ 
+ public List<char> Sort(List<char> charList)
+ {
+                if (charList.Count <= 1)
+                    return charList;
+ 
+                int[] sortedList = new int[charList.Count];
+ 
+                Random ran = new Random();
+                int pointer = ran.Next(0, charList.Count - 1);
+                
+                //select a pivot from the list based on the random number.
+                char pivot = charList[pointer];
+ 
+                //Create two lists for each pivot.Left list will contain the lesser items and right list
+                //will contain all the grater items then pivot
+                List<char> leftList= new List<char>();
+                List<char> rightList = new List<char>();
+ 
+                foreach (var item in charList)
+                {
+                    if (item < pivot)
+                       leftList.Add(item); 
+                    else if (item > pivot)
+                        rightList.Add(item);                    
+                }
+ 
+                //Call the same method recursively unless we have one items left in each left and right
+                //side
+                var mergedSolution = Sort(leftList);
+                mergedSolution.Add(pivot);
+                mergedSolution.AddRange(Sort(rightList));
+         }
+         
+3)Merge Sort
+         
+2) DNA String
+https://stackoverflow.com/questions/17096494/counting-letters-in-string
+
+myString.Length; //will get you your result
+//alternatively, if you only want the count of letters:
+myString.Count(char.IsLetter);
+//however, if you want to display the words as ***_***** (where _ is a space)
+//you can also use this:
+//small note: that will fail with a repeated word, so check your repeats!
+myString.Split(' ').ToDictionary(n => n, n => n.Length);
+//or if you just want the strings and get the counts later:
+myString.Split(' ');
+//will not fail with repeats
+//and neither will this, which will also get you the counts:
+myString.Split(' ').Select(n => new KeyValuePair<string, int>(n, n.Length));
