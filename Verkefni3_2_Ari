@@ -1,26 +1,21 @@
 1) Quick Sort
-  public static List<T> Quicksort<T>(List<T> elements) where T: IComparable {
-        if (elements.Count() < 2) return elements;
-        var pivot = rand.Next(elements.Count());
-        var val = elements[pivot];
-        var lesser = new List<T>();
-        var greater = new List<T>();
-        for (int i = 0; i < elements.Count(); i++) {
-            if (i != pivot) {
-                if (elements[i].CompareTo(val) < 0) {
-                    lesser.Add(elements[i]);
-                }
-                else {
-                    greater.Add(elements[i]);
-                }
-            }
+bool didSwap;
+do {
+    didSwap = false;
+    for (int i = 0; i < arr.Length-1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+        {
+            int temp = arr[i + 1];
+            arr[i + 1] = arr[i];
+            arr[i] = temp;
+            didSwap = true;
         }
-
-        var merged = Quicksort(lesser);
-        merged.Add(val);
-        merged.AddRange(Quicksort(greater));
-        return merged;
     }
+} while (didSwap);
+for (int i = 0; i != arr.Length ; i++) {
+    Console.Write(arr[i]);
+}
  
  public List<char> Sort(List<char> charList)
  {
@@ -54,21 +49,57 @@
                 mergedSolution.Add(pivot);
                 mergedSolution.AddRange(Sort(rightList));
          }
-         
-3)Merge Sort
+        
          
 2) DNA String
-https://stackoverflow.com/questions/17096494/counting-letters-in-string
+https://stackoverflow.com/questions/10830228/count-the-characters-individually-in-a-string-using-c-sharp
+var counted = text.GroupBy(c => c)
+                  .Select(g => new { g.Key, Count = g.Count() };
 
-myString.Length; //will get you your result
-//alternatively, if you only want the count of letters:
-myString.Count(char.IsLetter);
-//however, if you want to display the words as ***_***** (where _ is a space)
-//you can also use this:
-//small note: that will fail with a repeated word, so check your repeats!
-myString.Split(' ').ToDictionary(n => n, n => n.Length);
-//or if you just want the strings and get the counts later:
-myString.Split(' ');
-//will not fail with repeats
-//and neither will this, which will also get you the counts:
-myString.Split(' ').Select(n => new KeyValuePair<string, int>(n, n.Length));
+foreach (var result in counted)
+{
+    Console.WriteLine("{0} = {1}", result.Key, result.Count);
+}
+
+or
+
+foreach (var group in text.GroupBy(c => c))
+{
+    Console.WriteLine("{0} = {1}", group.Key, result.Count());
+}
+
+3)Búðarkassi 2
+static void Main(string[] args)
+        {
+            string again = null;
+            string item = null;
+            do
+            {
+                Console.WriteLine("Type the price and amount(amount,price):");
+                item = Console.ReadLine();
+                string[] info = item.Split(' ');
+
+                int num1 = Int32.Parse(info[0]);
+                int num2 = Int32.Parse(info[1]);
+                Console.WriteLine();
+                var result = 0;
+
+                for (int i = 0; i < Math.Abs(num2); i++)
+                {
+                    result += num1;
+                }
+
+                if (num2 < 0)
+                {
+                    Console.WriteLine("Price is: " + -result);
+                }
+                else
+                {
+                    Console.WriteLine("Price is: " + result);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Want to add another item?(y/n):" );
+                again = Console.ReadLine();
+                Console.Clear();
+            } while (again != "n");
+        }
