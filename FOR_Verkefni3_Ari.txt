@@ -50,6 +50,8 @@ print('and it took...', perf_counter()- start, 'seconds to calculate.')
 
 a) Hvað gerir þetta reiknirit hægvirkt?
 Það að forritið reiknar frá hæðstu töluni fyrst, að reykna frá lægstu up til hæðstu er hraðvirkara
+
 b) Hver er kostur reikniritsins? 
-Það getur reiknað rétt
+Það getur reiknað það alveg rétt
+
 c) Hvernig liti ferillinn út á grafi, ef við reiknuðum tíma vs. fjöldi bita. Hvaða tímaflækja er þetta?
