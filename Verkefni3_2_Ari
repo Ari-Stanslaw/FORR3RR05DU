@@ -1,72 +1,112 @@
 1) Quick Sort
-bool didSwap;
-do {
-    didSwap = false;
-    for (int i = 0; i < arr.Length-1; i++)
-    {
-        if (arr[i] > arr[i + 1])
+static void Main(string[] args)
+{
+    private static void Quick_Sort(int[] arr, int left, int right)
         {
-            int temp = arr[i + 1];
-            arr[i + 1] = arr[i];
-            arr[i] = temp;
-            didSwap = true;
-        }
-    }
-} while (didSwap);
-for (int i = 0; i != arr.Length ; i++) {
-    Console.Write(arr[i]);
-}
- 
- public List<char> Sort(List<char> charList)
- {
-                if (charList.Count <= 1)
-                    return charList;
- 
-                int[] sortedList = new int[charList.Count];
- 
-                Random ran = new Random();
-                int pointer = ran.Next(0, charList.Count - 1);
-                
-                //select a pivot from the list based on the random number.
-                char pivot = charList[pointer];
- 
-                //Create two lists for each pivot.Left list will contain the lesser items and right list
-                //will contain all the grater items then pivot
-                List<char> leftList= new List<char>();
-                List<char> rightList = new List<char>();
- 
-                foreach (var item in charList)
+            if (left < right)
+            {
+                int pivot = Partition(arr, left, right);
+
+                if (pivot > 1)
                 {
-                    if (item < pivot)
-                       leftList.Add(item); 
-                    else if (item > pivot)
-                        rightList.Add(item);                    
+                    Quick_Sort(arr, left, pivot - 1);
                 }
- 
-                //Call the same method recursively unless we have one items left in each left and right
-                //side
-                var mergedSolution = Sort(leftList);
-                mergedSolution.Add(pivot);
-                mergedSolution.AddRange(Sort(rightList));
-         }
+                if (pivot + 1 < right)
+                {
+                    Quick_Sort(arr, pivot + 1, right);
+                }
+            }
+
+        }
+        private static int Partition(int[] arr, int left, int right)
+        {
+            int pivot = arr[left];
+            while (true)
+            {
+                while (arr[left] < pivot)
+                {
+                    left++;
+                }
+                while (arr[right] > pivot)
+                {
+                    right--;
+                }
+                if (left < right)
+                {
+                    int temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+
+                    if (arr[left] == arr[right])
+                        left++;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 2, 5, -4, 11, 0, 18, 2, 67, 51, 6 };
+
+            Console.WriteLine("Original array : ");
+            foreach (var item in arr)
+            {
+                Console.Write(" " + item);
+            }
+            Console.WriteLine();
+
+            Quick_Sort(arr, 0, arr.Length - 1);
+
+            Console.WriteLine();
+            Console.WriteLine("Sorted array : ");
+
+            foreach (var item in arr)
+            {
+                Console.Write(" " + item);
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+}
         
          
 2) DNA String
-https://stackoverflow.com/questions/10830228/count-the-characters-individually-in-a-string-using-c-sharp
-var counted = text.GroupBy(c => c)
-                  .Select(g => new { g.Key, Count = g.Count() };
-
-foreach (var result in counted)
-{
-    Console.WriteLine("{0} = {1}", result.Key, result.Count);
-}
-
-or
-
-foreach (var group in text.GroupBy(c => c))
-{
-    Console.WriteLine("{0} = {1}", group.Key, result.Count());
-}
+static void Main(string[] args)
+        {
+            string name = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+                var tempLetter = "";
+                string arrangedName = "";
+                List<string> ListLetters = new List<string>(); //we use the advantage of generics for a mutable version of array.
+                arrangedName = "";
+                for (int i = 0; i < name.Length; i++)
+                {
+                    ListLetters.Add(name.Substring(i, 1)); //limit the string to 1 so that its convertible to character.
+                }
+                for (int i = 0; i < name.Length; i++)
+                {
+                    for (int j = i; j < name.Length; j++)
+                    {
+                        if (char.Parse(ListLetters[i]) > char.Parse(ListLetters[j]))
+                        {
+                            tempLetter = ListLetters[i];
+                            ListLetters[i] = ListLetters[j];
+                            ListLetters[j] = tempLetter;
+                        }
+                    }
+                }
+                foreach (var listLetter in ListLetters)
+                {
+                    arrangedName += listLetter;
+                }
+            Console.WriteLine("Original: ");
+            Console.WriteLine(name);
+            Console.WriteLine();
+            Console.WriteLine("Arranged: ");
+            Console.WriteLine(arrangedName);
+            Console.ReadLine();
+        }
 
 3)Búðarkassi 2
 static void Main(string[] args)
@@ -82,23 +122,17 @@ static void Main(string[] args)
                 int num1 = Int32.Parse(info[0]);
                 int num2 = Int32.Parse(info[1]);
                 Console.WriteLine();
-                var result = 0;
 
-                for (int i = 0; i < Math.Abs(num2); i++)
+                int result = 0;
+                for (int i = 0; i < num2; i++)
                 {
-                    result += num1;
+                    int temp = result + num1;
+                    result = temp;
                 }
+                Console.WriteLine("Price is: " + result);
 
-                if (num2 < 0)
-                {
-                    Console.WriteLine("Price is: " + -result);
-                }
-                else
-                {
-                    Console.WriteLine("Price is: " + result);
-                }
                 Console.WriteLine();
-                Console.WriteLine("Want to add another item?(y/n):" );
+                Console.WriteLine("Want to add another item?(y/n):");
                 again = Console.ReadLine();
                 Console.Clear();
             } while (again != "n");
