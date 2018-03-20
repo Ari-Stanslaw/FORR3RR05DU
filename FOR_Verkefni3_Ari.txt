@@ -1,4 +1,4 @@
-1) Komdu meğ fall/kóğsınidæmi fyrir hvern flokk í Big(O). (2%)
+1) Komdu meÃ° fall/kÃ³Ã°sÃ½nidÃ¦mi fyrir hvern flokk Ã­ Big(O). (2%)
 A) 
 O(n):
 int[] a = new int[n];
@@ -25,17 +25,17 @@ a[i] = n
 }
 
 
-2) Tímamæling og tímaflækja. (3%)
-Notağu fibonacci föll (ítrağa og endurkvæma útgáfu) og taktu tímamælingu á şeim meğ eftirfarandi inntök: 1, 10, 20, 30, 40, og 50. Hversu langan tíma tók ağ keyra föllin meğ şessi mismunandi inntök? Hvağa tímaflækjur (Big O) eru á şessum tveimur föllum (fibonacci ítrağ, fibonacci endurkvæm)?
+2) TÃ­mamÃ¦ling og tÃ­maflÃ¦kja. (3%)
+NotaÃ°u fibonacci fÃ¶ll (Ã­traÃ°a og endurkvÃ¦ma ÃºtgÃ¡fu) og taktu tÃ­mamÃ¦lingu Ã¡ Ã¾eim meÃ° eftirfarandi inntÃ¶k: 1, 10, 20, 30, 40, og 50. Hversu langan tÃ­ma tÃ³k aÃ° keyra fÃ¶llin meÃ° Ã¾essi mismunandi inntÃ¶k? HvaÃ°a tÃ­maflÃ¦kjur (Big O) eru Ã¡ Ã¾essum tveimur fÃ¶llum (fibonacci Ã­traÃ°, fibonacci endurkvÃ¦m)?
 
-3)  Útskırğu şığingu P = NP og P ? NP. Hvağ stendur P og NP fyrir? komdu meğ dæmi um NP vandamál. (2%)
-P = NP: ağ öll dæmi sem eru NP eru P
-P ? NP: ağ şağ eru 2 óteingd meingi
+3)  ÃštskÃ½rÃ°u Ã¾Ã½Ã°ingu P = NP og P ? NP. HvaÃ° stendur P og NP fyrir? komdu meÃ° dÃ¦mi um NP vandamÃ¡l. (2%)
+P = NP: aÃ° Ã¶ll dÃ¦mi sem eru NP eru P
+P ? NP: aÃ° Ã¾aÃ° eru 2 Ã³teingd meingi
 P: Polynomial time
 NP: Non-deteministic Polynomial time
-Demi um NP er til dæmis Sudoku
+Demi um NP er til dÃ¦mis Sudoku
 
-4) Hér er dæmi um frumutöluşáttunar reiknirit (e. prime factorization) https://en.wikipedia.org/wiki/Trial_division (3%) 
+4) HÃ©r er dÃ¦mi um frumutÃ¶luÃ¾Ã¡ttunar reiknirit (e. prime factorization) https://en.wikipedia.org/wiki/Trial_division (3%) 
 from time import perf_counter 
 num = 1998			 # Replace with your own number
 divisor = 2 					 # The first number num is divided by 
@@ -48,6 +48,8 @@ divisor += 1
 print('are its prime factors') 
 print('and it took...', perf_counter()- start, 'seconds to calculate.') 
 
-a) Hvağ gerir şetta reiknirit hægvirkt?
+a) HvaÃ° gerir Ã¾etta reiknirit hÃ¦gvirkt?
+ÃaÃ° aÃ° forritiÃ° reiknar frÃ¡ hÃ¦Ã°stu tÃ¶luni fyrst, aÃ° reykna frÃ¡ lÃ¦gstu up til hÃ¦Ã°stu er hraÃ°virkara
 b) Hver er kostur reikniritsins? 
-c) Hvernig liti ferillinn út á grafi, ef viğ reiknuğum tíma vs. fjöldi bita. Hvağa tímaflækja er şetta?
+ÃaÃ° getur reiknaÃ° rÃ©tt
+c) Hvernig liti ferillinn Ãºt Ã¡ grafi, ef viÃ° reiknuÃ°um tÃ­ma vs. fjÃ¶ldi bita. HvaÃ°a tÃ­maflÃ¦kja er Ã¾etta?
