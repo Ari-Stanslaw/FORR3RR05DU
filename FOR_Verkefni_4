@@ -1,0 +1,102 @@
+           1)
+           Func<int, int> factorialm = null;
+            factorialm = x => x <= 1 ? 1 : x * factorialm(x - 1);
+
+            for (int i = 1; i <= 16; i++)//16 er hæsta tallan til að forritið byrjar að ruglast
+            {
+                Console.WriteLine(factorialm(i));
+            }
+            Console.ReadLine();
+            
+            2)
+                class evaluation
+                {
+                   public string postfix;
+                   public string answer;
+                   Stack i = new Stack();
+                   public void evaluator()
+                   {
+                       int a, b, ans;
+                       for (int j = 0; j < postfix.Length; j++)
+                       {
+                            String c = postfix.Substring(j, 1);
+                            if (c.Equals("*"))
+                            {
+                                String sa = (String)i.Pop();
+                                String sb = (String)i.Pop();
+                                a = Convert.ToInt32(sb);
+                                b = Convert.ToInt32(sa);
+                                ans = a * b;
+                                i.Push(ans.ToString());
+                            }
+                            else if (c.Equals("/"))
+                            {
+                                String sa = (String)i.Pop();
+                                String sb = (String)i.Pop();
+                                a = Convert.ToInt32(sb);
+                                b = Convert.ToInt32(sa);
+                                ans = a / b;
+                                i.Push(ans.ToString());
+                            }
+                            else if (c.Equals("+"))
+                            {
+                                String sa = (String)i.Pop();
+                                String sb = (String)i.Pop();
+                                a = Convert.ToInt32(sb);
+                                b = Convert.ToInt32(sa);
+                                ans = a + b;
+                                i.Push(ans.ToString());
+                            }
+                            else if (c.Equals("-"))
+                            {
+                                String sa = (String)i.Pop();
+                                String sb = (String)i.Pop();
+                                a = Convert.ToInt32(sb);
+                                b = Convert.ToInt32(sa);
+                                ans = a - b;
+                                i.Push(ans.ToString());
+                            }
+                            else
+                            {
+                                i.Push(postfix.Substring(j, 1));
+                            }
+                        }
+                        answer = (String)i.Pop();
+                    }
+                }
+                class Program
+                {
+                   static void Main(string[] args)
+                {
+                   evaluation e1 = new evaluation();
+                   Console.WriteLine("enter any postfix expression");
+                   e1.postfix = Console.ReadLine();
+                   e1.evaluator();
+                   Console.WriteLine("\n\t\tpostfix evaluation:  " + e1.answer);
+                   Console.ReadKey();
+               }
+          }
+          
+          3)
+              public static void Main()  {
+
+                Queue myQ = new Queue();
+                myQ.Enqueue("Hello");
+                myQ.Enqueue("World");
+                myQ.Enqueue("!");
+
+                Console.WriteLine( "myQ" );
+                Console.WriteLine( "\tCount:    {0}", myQ.Count );
+                Console.Write( "\tValues:" );
+                PrintValues( myQ );
+            }
+
+
+            public static void PrintValues( IEnumerable myCollection )  {
+               foreach ( Object obj in myCollection )
+                  Console.Write( "    {0}", obj );
+               Console.WriteLine();
+            }
+          }
+          
+          4)
